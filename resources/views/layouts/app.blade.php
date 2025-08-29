@@ -18,18 +18,24 @@
     @endif
 </head>
 
-<body>
-  <header>
-    <h2>Auth API</h2>
-    @auth
-      <form method="POST" action="{{ route('logout') }}" style="display: inline;">
-        @csrf
-        <button type="submit">Cerrar sesión</button>
-      </form>
-    @endauth
+<body class="bg-gray-50 min-h-screen">
+  <header class="bg-white shadow-sm border-b border-gray-200">
+    <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h2 class="text-xl font-semibold text-gray-900">Auth API</h2>
+      @auth
+        <form method="POST" action="{{ route('logout') }}" class="inline">
+          @csrf
+          <button type="submit" class="text-sm text-gray-600 hover:text-gray-900 transition-colors duration-200">
+            Cerrar sesión
+          </button>
+        </form>
+      @endauth
+    </div>
   </header>
 
-  @yield('content')
+  <main class="max-w-md mx-auto px-4 py-8">
+    @yield('content')
+  </main>
 </body>
 
 </html>

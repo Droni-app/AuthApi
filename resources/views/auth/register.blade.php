@@ -3,23 +3,25 @@
 @section('title', config('app.name', 'Laravel') . ' - Registro')
 
 @section('content')
-    <div>
-        <h1>{{ config('app.name', 'Laravel') }}</h1>
-        <p>Crea tu cuenta</p>
+    <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
+        <div class="text-center mb-8">
+            <h1 class="text-2xl font-bold text-gray-900 mb-2">{{ config('app.name', 'Laravel') }}</h1>
+            <p class="text-gray-600">Crea tu cuenta</p>
+        </div>
 
         @if ($errors->any())
-            <div>
+            <div class="mb-6 p-4 bg-red-50 border border-red-200 rounded-md">
                 @foreach ($errors->all() as $error)
-                    <p>{{ $error }}</p>
+                    <p class="text-sm text-red-600">{{ $error }}</p>
                 @endforeach
             </div>
         @endif
 
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('register') }}" class="space-y-6">
             @csrf
 
             <div>
-                <label for="name">Nombre completo</label>
+                <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Nombre completo</label>
                 <input
                     id="name"
                     name="name"
@@ -27,11 +29,12 @@
                     autocomplete="name"
                     required
                     value="{{ old('name') }}"
-                    placeholder="Tu nombre completo">
+                    placeholder="Tu nombre completo"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
             </div>
 
             <div>
-                <label for="email">Correo electrónico</label>
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Correo electrónico</label>
                 <input
                     id="email"
                     name="email"
@@ -39,37 +42,42 @@
                     autocomplete="email"
                     required
                     value="{{ old('email') }}"
-                    placeholder="tu@email.com">
+                    placeholder="tu@email.com"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
             </div>
 
             <div>
-                <label for="password">Contraseña</label>
+                <label for="password" class="block text-sm font-medium text-gray-700 mb-2">Contraseña</label>
                 <input
                     id="password"
                     name="password"
                     type="password"
                     autocomplete="new-password"
                     required
-                    placeholder="••••••••">
+                    placeholder="••••••••"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
             </div>
 
             <div>
-                <label for="password_confirmation">Confirmar contraseña</label>
+                <label for="password_confirmation" class="block text-sm font-medium text-gray-700 mb-2">Confirmar contraseña</label>
                 <input
                     id="password_confirmation"
                     name="password_confirmation"
                     type="password"
                     autocomplete="new-password"
                     required
-                    placeholder="••••••••">
+                    placeholder="••••••••"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
             </div>
 
-            <button type="submit">Registrarse</button>
+            <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200">
+                Registrarse
+            </button>
         </form>
 
         @if (Route::has('login'))
-            <div>
-                <p>¿Ya tienes una cuenta? <a href="{{ route('login') }}">Inicia sesión aquí</a></p>
+            <div class="mt-6 text-center">
+                <p class="text-sm text-gray-600">¿Ya tienes una cuenta? <a href="{{ route('login') }}" class="text-blue-600 hover:text-blue-800">Inicia sesión aquí</a></p>
             </div>
         @endif
     </div>
