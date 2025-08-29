@@ -12,7 +12,7 @@ class AppServiceProvider extends ServiceProvider
    */
   public function register(): void
   {
-    Passport::authorizationView('auth.oauth.device.authorize');
+    Passport::authorizationView('auth.oauth.authorize');
   }
 
   /**
